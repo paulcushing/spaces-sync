@@ -1,0 +1,80 @@
+.spacessync__loader {
+  display: none;
+}
+
+.spacessync__message {
+  display: none;
+}
+
+.spacessync__page {
+  max-width: 1200px;
+}
+
+.spacessync__page .spacessync__block {
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px #1e2b3b solid;
+}
+
+.spacessync__page .spacessync__block .row {
+  padding-bottom: 1rem;
+  align-items: center;
+}
+
+.spacessync__page .spacessync__block .row.larger {
+  height: 150px;
+}
+
+.spacessync__page label {
+  font-weight: bold;
+  display: block;
+  padding-bottom: 8px;
+}
+
+.spacessync__page h2 {
+  font-size: 1.4rem;
+  color: #1e2b3b;
+}
+
+.spacessync__page h4 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #1e2b3b;
+  font-size: 1.2em;
+}
+
+.spacessync__page .spacessync__block input[type=button],
+.spacessync__page input[type=submit] {
+  background: #1e2b3b;
+  box-shadow: none;
+  border-radius: 6px;
+  border: none;
+  font-weight: 300;
+  text-shadow: none;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 12px;
+  padding: 10px 15px 9px 15px;
+  box-sizing: border-box;
+  height: auto;
+  line-height: 16px;
+}
+
+.spacessync__page .spacessync__block input[type=button]:hover,
+.spacessync__page input[type=submit]:hover {
+  background-color: #32465e;
+}
+
+.spacessync__page .spacessync__block input[type=text],
+.spacessync__page .spacessync__block input[type=password] {
+  width: 98%;
+  padding: 6px 10px;
+}
+
+.spacessync__page .spacessync__block input[type=checkbox] {
+  margin-bottom: 10px;
+}
+
+#message {
+  margin: 0;
+}
