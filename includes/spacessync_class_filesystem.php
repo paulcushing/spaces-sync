@@ -4,7 +4,7 @@ use Aws\S3\S3Client;
 use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
 use League\Flysystem\Filesystem;
 
-require plugin_dir_path(__FILE__) . 'vendor/autoload.php';
+require plugin_dir_path(__DIR__) . 'vendor/autoload.php';
 
 class SpacesSync_Filesystem
 {

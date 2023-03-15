@@ -64,14 +64,14 @@ if (!class_exists('SpacesSync')) {
     public function register_scripts()
     {
 
-      wp_enqueue_script('spacessync-core-js', plugin_dir_url(__FILE__) . '/assets/scripts/core.js', array('jquery'), '1.4.0', true);
+      wp_enqueue_script('spacessync-core-js', plugin_dir_url(__DIR__) . '/assets/scripts/core.js', array('jquery'), '1.4.0', true);
     }
 
     public function register_styles()
     {
 
-      wp_enqueue_style('spacessync-flexboxgrid', plugin_dir_url(__FILE__) . '/assets/styles/flexboxgrid.min.css');
-      wp_enqueue_style('spacessync-core-css', plugin_dir_url(__FILE__) . '/assets/styles/core.css');
+      wp_enqueue_style('spacessync-flexboxgrid', plugin_dir_url(__DIR__) . '/assets/styles/flexboxgrid.min.css');
+      wp_enqueue_style('spacessync-core-css', plugin_dir_url(__DIR__) . '/assets/styles/core.css');
     }
 
     public function register_settings()
