@@ -1,6 +1,6 @@
 {
   "name": "spaces-sync",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This WordPress plugin syncs your media library with [DigitalOcean Spaces](https://m.do.co/c/8ed78a03ae44) Container.",
   "main": "spaces-sync.php",
   "scripts": {

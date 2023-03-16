@@ -1,6 +1,6 @@
-=== Plugin Name ===
+=== Space Sync ===
 Contributors: paulcushing
-Tags: digitalocean, spaces, storage, object, s3
+Tags: digitalocean, spaces, storage, object, s3, images, compression
 Requires at least: 6.1.1
 Tested up to: 6.1.1
 Stable tag: 1.0.2

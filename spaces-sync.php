@@ -4,7 +4,7 @@
  * Plugin Name: Spaces Sync
  * Plugin URI: https://github.com/paulcushing/Spaces-Sync
  * Description: This WordPress plugin syncs your media library with DigitalOcean Spaces Bucket.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: paulcushing
  * Author URI: https://github.com/paulcushing
  * License: MIT
@@ -17,7 +17,7 @@ if (!defined('WPINC')) {
   die;
 }
 
-define('SPACES_SYNC_VERSION', '1.0.2');
+define('SPACES_SYNC_VERSION', '1.0.3');
 
 
 require plugin_dir_path(__FILE__) . 'includes/spacessync_class.php';

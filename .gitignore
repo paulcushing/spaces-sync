@@ -1,4 +1,4 @@
 vendor
-*.zip
+
 .DS_store
 node_modules

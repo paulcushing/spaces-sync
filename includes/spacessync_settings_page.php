@@ -220,7 +220,7 @@
           </div>
 
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
-            <input id="spacessync_storage_path" name="spacessync_compression_amount" type="number" min="0" max="100" class="regular-text code" value="<?php echo get_option('spacessync_compression_amount'); ?>" />
+            <input id="spacessync_compression_amount" name="spacessync_compression_amount" type="number" min="0" max="100" class="regular-text code" value="<?php echo get_option('spacessync_compression_amount'); ?>" />
             <div class="spacessync__description">
               <?php _e('1 = smallest file and most compression.', 'spacessync'); ?><br />
               <?php _e('99 = largest file and least compressed.', 'spacessync'); ?><br />
