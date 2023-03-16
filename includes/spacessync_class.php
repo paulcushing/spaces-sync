@@ -12,6 +12,9 @@ if (!class_exists('SpacesSync')) {
     private        $filter;
     private        $upload_url_path;
     private        $upload_path;
+    private        $compression_amount;
+    private        $max_width;
+    private        $max_height;
 
     /**
      *
@@ -30,6 +33,9 @@ if (!class_exists('SpacesSync')) {
       $this->filter              = get_option('spacessync_filter');
       $this->upload_url_path     = get_option('upload_url_path');
       $this->upload_path         = get_option('upload_path');
+      $this->compression_amount  = get_option('spacessync_compression_amount');
+      $this->max_width           = get_option('spacessync_max_width');
+      $this->max_height          = get_option('spacessync_max_height');
     }
 
     public function setup()
@@ -50,13 +56,13 @@ if (!class_exists('SpacesSync')) {
 
       add_action('wp_ajax_spacessync_test_connection', array($this, 'test_connection'));
 
+      add_action('wp_handle_upload', array($this, 'processUploadedImages'), 10, 1);
       add_action('add_attachment', array($this, 'action_add_attachment'), 10, 1);
       add_action('delete_attachment', array($this, 'action_delete_attachment'), 10, 1);
     }
 
     private function register_filters()
     {
-
       add_filter('wp_generate_attachment_metadata', array($this, 'filter_wp_generate_attachment_metadata'), 20, 1);
       add_filter('wp_unique_filename', array($this, 'filter_wp_unique_filename'));
     }
@@ -87,6 +93,9 @@ if (!class_exists('SpacesSync')) {
       register_setting('spacessync_settings', 'spacessync_filter');
       register_setting('spacessync_settings', 'upload_url_path');
       register_setting('spacessync_settings', 'upload_path');
+      register_setting('spacessync_settings', 'spacessync_compression_amount');
+      register_setting('spacessync_settings', 'spacessync_max_width');
+      register_setting('spacessync_settings', 'spacessync_max_height');
     }
 
     public function register_setting_page()
@@ -103,6 +112,35 @@ if (!class_exists('SpacesSync')) {
         'setting_page.php',
         array($this, 'register_setting_page')
       );
+    }
+
+    public function processUploadedImages($image_data) {
+      $valid_types = array('image/gif', 'image/png', 'image/jpeg', 'image/jpg');
+
+      /* Process images only */
+      if (in_array($image_data['type'], $valid_types)) {
+        
+        $image_editor = wp_get_image_editor($image_data['file']);
+        $sizes = $image_editor->get_size();
+
+        /* Compress jpegs */
+        if ($this->compression_amount > 0 && $this->compression_amount < 100) {
+          $image_editor->set_quality($this->compression_amount);
+        }
+
+        /* Resize within max dimensions */
+        if (
+          ($this->max_width > 0 || $this->max_height > 0) &&
+          (isset($sizes['width']) && $sizes['width'] > $this->max_width) ||
+           (isset($sizes['height']) && $sizes['height'] > $this->max_height)) {
+      
+          $image_editor->resize($this->max_width, $this->max_height, false);
+        }
+            
+        $image_editor->save($image_data['file']);
+
+      }
+      return $image_data;
     }
 
     public function filter_wp_generate_attachment_metadata($metadata)

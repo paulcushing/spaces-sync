@@ -71,6 +71,11 @@
   padding: 6px 10px;
 }
 
+.spacessync__page .spacessync__block input[type=number] {
+  width: 100px;
+  padding: 6px 10px;
+}
+
 .spacessync__page .spacessync__block input[type=checkbox] {
   margin-bottom: 10px;
 }
