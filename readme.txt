@@ -3,7 +3,7 @@ Contributors: paulcushing
 Tags: digitalocean, spaces, storage, object, s3, images, compression
 Requires at least: 6.1.1
 Tested up to: 6.1.1
-Stable tag: 1.0.2
+Stable tag: 1.0.4
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -25,6 +25,14 @@ In order to use this plugin, you have to create a DigitalOcean Spaces API key.
 4. Create a DigitalOcean Spaces API key and container
 
 == Changelog ==
+
+= 1.0.4 =
+* Prevent plugin and theme installer packages from being offloaded.
+* Use the actual WordPress upload directory for remote collision checks.
+* Defer non-image offload until attachment metadata has been generated.
+* Retain local attachment files when any cloud operation fails.
+* Fix image resize limit handling and image editor error handling.
+* Secure the connection test with administrator permission, a nonce, and endpoint validation.
 
 = 1.0.1 =
 * Initial releasse.
