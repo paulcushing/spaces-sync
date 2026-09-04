@@ -13,6 +13,7 @@ jQuery( function () {
       spacessync_secret: jQuery('input[name=spacessync_secret]').val(),
       spacessync_endpoint: jQuery('input[name=spacessync_endpoint]').val(),
       spacessync_container: jQuery('input[name=spacessync_container]').val(),
+      nonce: spacesSyncSettings.connectionNonce,
       action: 'spacessync_test_connection'
     }
 
